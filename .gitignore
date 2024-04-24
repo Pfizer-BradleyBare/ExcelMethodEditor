@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+~*
+build
+.vscode
+.DS_Store
+.ruff_cache
+excel_method_editor.egg-info
