@@ -164,6 +164,31 @@
        </attribute>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="button_main_debug">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string notr="true">Debug</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">group_main_menu_bar</string>
+       </attribute>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QStackedWidget" name="pages_main">
@@ -175,11 +200,14 @@
       <height>531</height>
      </rect>
     </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
     <widget class="QWidget" name="page_main_home">
-     <widget class="QLabel" name="label_home_log_header">
+     <widget class="QLabel" name="label_home_gantt_header">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -197,10 +225,10 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Automation Bare Necessities Trace</string>
+       <string>Method Timeline</string>
       </property>
      </widget>
-     <widget class="QTableView" name="table_view_home_log">
+     <widget class="QWebEngineView" name="web_home_gantt">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -209,27 +237,24 @@
         <height>491</height>
        </rect>
       </property>
-      <property name="selectionMode">
-       <enum>QAbstractItemView::ContiguousSelection</enum>
+      <property name="url">
+       <url>
+        <string>about:blank</string>
+       </url>
       </property>
-      <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
+     </widget>
+     <widget class="QPushButton" name="button_home_reload_gantt">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>500</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
       </property>
-      <attribute name="horizontalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="verticalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="verticalHeaderCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
+      <property name="text">
+       <string>Reload</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_main_method_tools">
@@ -244,7 +269,7 @@
       </property>
       <layout class="QVBoxLayout" name="layout_method_tools_menu_bar">
        <item>
-        <widget class="QPushButton" name="button_method_tools_show_queue">
+        <widget class="QPushButton" name="button_method_tools_method_queue">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -252,7 +277,10 @@
           </size>
          </property>
          <property name="text">
-          <string notr="true">Show Method Queue</string>
+          <string notr="true">Method Queue</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
          <attribute name="buttonGroup">
           <string notr="true">group_method_tools_menu_bar</string>
@@ -270,6 +298,9 @@
          <property name="text">
           <string notr="true">Queue Method</string>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
          <attribute name="buttonGroup">
           <string notr="true">group_method_tools_menu_bar</string>
          </attribute>
@@ -285,6 +316,9 @@
          </property>
          <property name="text">
           <string notr="true">Test Method</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
          <attribute name="buttonGroup">
           <string notr="true">group_method_tools_menu_bar</string>
@@ -302,6 +336,9 @@
          <property name="text">
           <string notr="true">Generate Preparation List</string>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
          <attribute name="buttonGroup">
           <string notr="true">group_method_tools_menu_bar</string>
          </attribute>
@@ -311,7 +348,7 @@
      </widget>
     </widget>
     <widget class="QWidget" name="page_main_devices">
-     <widget class="QScrollArea" name="scrollArea">
+     <widget class="QScrollArea" name="scroll_area_devices_menu_bar">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -329,7 +366,7 @@
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="scroll_area_devices_menu_bar">
+      <widget class="QWidget" name="scroll_area_devices_menu_bar_sub">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -352,6 +389,9 @@
             <property name="text">
              <string notr="true">Backend</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -367,6 +407,9 @@
             </property>
             <property name="text">
              <string notr="true">Carrier</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -384,6 +427,9 @@
             <property name="text">
              <string notr="true">Carrier Loader</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -399,6 +445,9 @@
             </property>
             <property name="text">
              <string notr="true">Centrifuge</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -416,6 +465,9 @@
             <property name="text">
              <string notr="true">Closeable Container</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -431,6 +483,9 @@
             </property>
             <property name="text">
              <string notr="true">Deck Location</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -448,6 +503,9 @@
             <property name="text">
              <string notr="true">Door Lock</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -463,6 +521,9 @@
             </property>
             <property name="text">
              <string notr="true">Heat Cool Shake</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -480,6 +541,9 @@
             <property name="text">
              <string notr="true">Labware</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -495,6 +559,9 @@
             </property>
             <property name="text">
              <string notr="true">Layout Item</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -512,6 +579,9 @@
             <property name="text">
              <string notr="true">Magnetic Rack</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -527,6 +597,9 @@
             </property>
             <property name="text">
              <string notr="true">Pipette</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -544,6 +617,9 @@
             <property name="text">
              <string notr="true">Storage Device</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -559,6 +635,9 @@
             </property>
             <property name="text">
              <string notr="true">Tip</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -576,6 +655,9 @@
             <property name="text">
              <string notr="true">Transport</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -592,6 +674,9 @@
             <property name="text">
              <string notr="true">Vacuum</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
             </attribute>
@@ -607,6 +692,9 @@
             </property>
             <property name="text">
              <string notr="true">Volume Measure</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <attribute name="buttonGroup">
              <string notr="true">group_devices_menu_bar</string>
@@ -649,16 +737,38 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_main_debug">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>210</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>debug</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
    <sender>button_main_method_tools</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button_main_menu_bar_method_tools_clicked()</slot>
+   <slot>button_main_method_tools_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>266</x>
@@ -674,15 +784,15 @@
    <sender>button_main_devices</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button_main_menu_bar_devices_clicked()</slot>
+   <slot>button_main_devices_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>486</x>
      <y>61</y>
     </hint>
     <hint type="destinationlabel">
-     <x>487</x>
-     <y>112</y>
+     <x>489</x>
+     <y>94</y>
     </hint>
    </hints>
   </connection>
@@ -690,15 +800,15 @@
    <sender>button_main_notifications_shortcut</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button_main_menu_bar_notifications_shortcut_clicked()</slot>
+   <slot>button_main_notifications_shortcut_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>711</x>
      <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>713</x>
-     <y>93</y>
+     <x>710</x>
+     <y>114</y>
     </hint>
    </hints>
   </connection>
@@ -706,15 +816,15 @@
    <sender>button_main_deck_loading_shortcut</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button_main_menu_bar_deck_loading_shortcut_clicked()</slot>
+   <slot>button_main_deck_loading_shortcut_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>933</x>
      <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>934</x>
-     <y>109</y>
+     <x>930</x>
+     <y>94</y>
     </hint>
    </hints>
   </connection>
@@ -722,7 +832,7 @@
    <sender>button_main_home</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button_main_menu_bar_home_clicked()</slot>
+   <slot>button_main_home_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>40</x>
@@ -734,17 +844,51 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>button_main_debug</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>button_main_debug_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1060</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1056</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_home_reload_gantt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>button_home_reload_gantt_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1099</x>
+     <y>624</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1076</x>
+     <y>649</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>button_main_menu_bar_home_clicked()</slot>
-  <slot>button_main_menu_bar_method_tools_clicked()</slot>
-  <slot>button_main_menu_bar_devices_clicked()</slot>
-  <slot>button_main_menu_bar_notifications_shortcut_clicked()</slot>
-  <slot>button_main_menu_bar_deck_loading_shortcut_clicked()</slot>
+  <slot>button_main_home_clicked()</slot>
+  <slot>button_main_method_tools_clicked()</slot>
+  <slot>button_main_devices_clicked()</slot>
+  <slot>button_main_notifications_shortcut_clicked()</slot>
+  <slot>button_main_deck_loading_shortcut_clicked()</slot>
+  <slot>button_main_debug_clicked()</slot>
+  <slot>button_home_reload_gantt_clicked()</slot>
  </slots>
  <buttongroups>
+  <buttongroup name="group_devices_menu_bar"/>
   <buttongroup name="group_method_tools_menu_bar"/>
   <buttongroup name="group_main_menu_bar"/>
-  <buttongroup name="group_devices_menu_bar"/>
  </buttongroups>
 </ui>
