@@ -63,6 +63,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             ],
         )
 
+        print(df)
+
         fig = px.timeline(
             df,
             x_start="Start",

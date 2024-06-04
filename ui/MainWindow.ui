@@ -204,7 +204,7 @@
      <number>1</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_main_home">
      <widget class="QLabel" name="label_home_gantt_header">
@@ -288,25 +288,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="button_method_tools_queue_method">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="text">
-          <string notr="true">Queue Method</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">group_method_tools_menu_bar</string>
-         </attribute>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="button_method_tools_test_method">
          <property name="minimumSize">
           <size>
@@ -344,7 +325,43 @@
          </attribute>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="button_method_tools_queue_method">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string notr="true">Queue Method</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">group_method_tools_menu_bar</string>
+         </attribute>
+        </widget>
+       </item>
       </layout>
+     </widget>
+     <widget class="QStackedWidget" name="pages_method_tools">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>10</y>
+        <width>881</width>
+        <height>511</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="page_method_tools_method_queue"/>
+      <widget class="QWidget" name="page_method_tools_test"/>
+      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="page_method_tools_queue_method"/>
      </widget>
     </widget>
     <widget class="QWidget" name="page_main_devices">
